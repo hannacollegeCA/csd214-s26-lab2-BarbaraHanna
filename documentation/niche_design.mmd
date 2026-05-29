@@ -1,0 +1,16 @@
+classDiagram
+    class SkincareProduct {
+        -String skinType
+        -double price
+    }
+
+    class Serum {
+        -String activeIngredient
+    }
+
+    class Moisturizer {
+        -boolean oilFree
+    }
+
+    SkincareProduct <|-- Serum
+    SkincareProduct <|-- Moisturizer
