@@ -69,8 +69,9 @@ public class App {
             System.out.println("2. Add Magazine");
             System.out.println("3. Add DiscMag");
             System.out.println("4. Add Ticket");
-            System.out.println("5. Add Serum");
-            System.out.println("6. Add Moisturizer");
+            System.out.println("5. Add Tire");
+            System.out.println("6. Add Serum");
+            System.out.println("7. Add Moisturizer");
             System.out.println("99. Exit");
 
             try {
@@ -89,8 +90,9 @@ public class App {
                 case 2: item = new Magazine(); break;
                 case 3: item = new DiscMag(); break;
                 case 4: item = new Ticket(); break;
-                case 5: item = new Serum();  break;
-                case 6: item = new Moisturizer();  break;
+                case 5: item = new Tire(); break;
+                case 6: item = new Serum();  break;
+                case 7: item = new Moisturizer();  break;
                 default: System.out.println("Invalid selection."); continue;
             }
 
@@ -118,8 +120,9 @@ public class App {
             System.out.println("3. Magazines");
             System.out.println("4. DiscMags");
             System.out.println("5. Tickets");
-            System.out.println("6. Serum");
-            System.out.println("7. Moisturizer");
+            System.out.println("6. Tire");
+            System.out.println("7. Serum");
+            System.out.println("8. Moisturizer");
             System.out.println("99. Exit");
 
             try {
@@ -139,8 +142,9 @@ public class App {
                 case 3: filter = Magazine.class; break;
                 case 4: filter = DiscMag.class; break;
                 case 5: filter = Ticket.class; break;
-                case 6: filter = Serum.class; break;
-                case 7: filter = Moisturizer.class; break;
+                case 6: filter = Tire.class; break;
+                case 7: filter = Serum.class; break;
+                case 8: filter = Moisturizer.class; break;
                 default: System.out.println("Invalid selection."); continue;
             }
 
@@ -279,6 +283,14 @@ public class App {
             t.description = "Concert: " + faker.rockBand().name();
             t.price = faker.number().randomDouble(2, 50, 150);
             addItem(t);
+
+            // Tire
+            Tire tire = new Tire(
+                    faker.commerce().productName() + " Tires", // manufacturer (e.g., "Michelin Tires")
+                    faker.number().randomDouble(2, 80, 350),   // price (e.g., $80.00 to $350.00)
+                    faker.number().numberBetween(15, 22)     // diameter (e.g., 15 to 22 inches)
+            );
+            addItem(tire);
 
             //Serum
             Serum s = new Serum();
