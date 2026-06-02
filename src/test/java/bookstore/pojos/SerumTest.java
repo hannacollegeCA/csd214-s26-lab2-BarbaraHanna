@@ -22,4 +22,13 @@ public class SerumTest {
         assertNotEquals(sk1, sk3);
     }
 
+    @Test
+    void testDefaultConstructor() {
+        Serum serum = new Serum();
+
+        assertEquals("Normal", serum.getSkinType());
+        assertEquals(0.0, serum.getPrice());
+        assertEquals("Hyaluronic Acid", serum.getActiveIngredient());
+
+    }
 }

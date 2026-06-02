@@ -14,4 +14,13 @@ public class TireTest {
         assertEquals(T1, T2);
         assertNotEquals(T1, T3);
     }
+
+    @Test
+    void testDefaultConstructor() {
+        Tire tire = new Tire("Unknown", 0.0, 0);
+
+        assertEquals("Unknown", tire.getManufacturer());
+        assertEquals(0.0, tire.getPrice());
+        assertEquals(0, tire.getDiameter());
+    }
 }

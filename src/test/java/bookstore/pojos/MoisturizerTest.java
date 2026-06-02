@@ -24,4 +24,13 @@ public class MoisturizerTest {
         assertEquals(sk1, sk2);
         assertNotEquals(sk1, sk3);
     }
+
+    @Test
+    void testDefaultConstructor() {
+        Moisturizer moisturizer = new Moisturizer();
+
+        assertEquals("Normal", moisturizer.getSkinType());
+        assertEquals(0.0, moisturizer.getPrice());
+        assertFalse(moisturizer.isOilFree());
+    }
 }

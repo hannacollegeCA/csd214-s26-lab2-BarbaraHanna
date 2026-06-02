@@ -22,4 +22,12 @@ public class SkincareProductTest {
         assertEquals(sk1, sk2);
         assertNotEquals(sk1, sk3);
     }
+
+    @Test
+    void testDefaultValues() {
+        Serum serum = new Serum();
+
+        assertEquals("Normal", serum.getSkinType());
+        assertEquals(0.0, serum.getPrice());
+    }
 }

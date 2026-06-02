@@ -14,4 +14,13 @@ public class BatteryTest {
         assertNotEquals(b1, b2);
 
     }
+
+    @Test
+    void testDefaultConstructor() {
+        Battery battery = new Battery("Unknown", 0.0, 0);
+
+        assertEquals("Unknown",  battery.getManufacturer());
+        assertEquals(0.0, battery.getPrice());
+        assertEquals(0, battery.getColdCrankingAmps());
+    }
 }
