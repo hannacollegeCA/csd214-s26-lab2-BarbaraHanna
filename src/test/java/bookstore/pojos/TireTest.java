@@ -23,4 +23,15 @@ public class TireTest {
         assertEquals(0.0, tire.getPrice());
         assertEquals(0, tire.getDiameter());
     }
+
+    @Test
+    void testSellItemDecrementsStock() {
+        Tire tire = new Tire("Michelin", 120.0, 17);
+        tire.setCopies(5);
+
+        tire.sellItem();
+
+        assertEquals(4, tire.getCopies());
+    }
+
 }

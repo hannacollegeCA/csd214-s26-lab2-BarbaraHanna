@@ -6,9 +6,11 @@ import java.util.Scanner;
 public class Moisturizer extends SkincareProduct {
 
     private boolean oilFree = false;
+    private int copies;
 
     public Moisturizer() {
         super();
+        this.copies = 0;
     }
 
     public boolean isOilFree() {
@@ -17,6 +19,14 @@ public class Moisturizer extends SkincareProduct {
 
     public void setOilFree(boolean oilFree) {
         this.oilFree = oilFree;
+    }
+
+    public int getCopies() {
+        return copies;
+    }
+
+    public void setCopies(int copies) {
+        this.copies = copies;
     }
 
     @Override
@@ -37,6 +47,9 @@ public class Moisturizer extends SkincareProduct {
 
     @Override
     public void sellItem() {
+        if (copies > 0) {
+            copies--;
+        }
         System.out.println("Selling Moisturizer (oil-free: " + oilFree + ")");
     }
 
@@ -44,6 +57,7 @@ public class Moisturizer extends SkincareProduct {
     public String toString() {
         return "Moisturizer{" +
                 "oilFree=" + oilFree +
+                ", copies=" + copies +
                 "} " + super.toString();
     }
 

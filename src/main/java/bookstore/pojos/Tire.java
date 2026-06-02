@@ -5,17 +5,33 @@ import java.util.Scanner;
 
 public class Tire extends VehiclePart{
     private int diameter;
+    private int copies;
 
     public Tire() {
+        super("Unknown", 0.0);
+        this.diameter = 0;
+        this.copies = 0;
+
     }
 
     public Tire(int diameter) {
+        super("Unknown", 0.0);
         this.diameter = diameter;
+        this.copies = 0;
     }
 
     public Tire(String manufacturer, double price, int diameter) {
         super(manufacturer, price);
         this.diameter = diameter;
+        this.copies = 0;
+    }
+
+    public int getCopies() {
+        return copies;
+    }
+
+    public void setCopies(int copies) {
+        this.copies = copies;
     }
 
     @Override
@@ -67,6 +83,9 @@ public class Tire extends VehiclePart{
 
     @Override
     public void sellItem() {
+        if (copies > 0) {
+            copies--;
+        }
         System.out.println("Selling a Tire");
     }
 }

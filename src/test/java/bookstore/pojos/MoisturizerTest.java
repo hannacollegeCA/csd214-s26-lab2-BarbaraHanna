@@ -33,4 +33,13 @@ public class MoisturizerTest {
         assertEquals(0.0, moisturizer.getPrice());
         assertFalse(moisturizer.isOilFree());
     }
+
+    @Test
+    void testSellItemDecrementsStock() {
+        Moisturizer moisturizer = new Moisturizer();
+        moisturizer.setCopies(5);
+        moisturizer.sellItem();
+
+        assertEquals(4, moisturizer.getCopies());
+    }
 }

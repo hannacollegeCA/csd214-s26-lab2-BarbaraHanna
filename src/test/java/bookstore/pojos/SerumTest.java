@@ -31,4 +31,13 @@ public class SerumTest {
         assertEquals("Hyaluronic Acid", serum.getActiveIngredient());
 
     }
+    @Test
+    void testSellItemDecrementsStock() {
+        Serum serum = new Serum();
+        serum.setCopies(5);
+
+        serum.sellItem();
+
+        assertEquals(4, serum.getCopies());
+    }
 }

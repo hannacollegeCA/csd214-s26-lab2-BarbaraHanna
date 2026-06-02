@@ -22,5 +22,18 @@ public class BatteryTest {
         assertEquals("Unknown",  battery.getManufacturer());
         assertEquals(0.0, battery.getPrice());
         assertEquals(0, battery.getColdCrankingAmps());
+        assertEquals(0, battery.getCopies());
+    }
+
+    @Test
+    void testSellItemDecrementsStock() {
+        Battery battery = new Battery("Unknown", 0.0, 0);
+
+        battery.setCopies(5);
+        battery.sellItem();
+
+        assertEquals(4, battery.getCopies());
+
+
     }
 }

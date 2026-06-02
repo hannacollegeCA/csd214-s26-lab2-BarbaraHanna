@@ -6,9 +6,11 @@ import java.util.Scanner;
 public class Serum extends SkincareProduct {
 
     private String activeIngredient = "Hyaluronic Acid";
+    private int copies;
 
     public Serum() {
         super();
+        this.copies = 0;
     }
 
     public String getActiveIngredient() {
@@ -17,6 +19,14 @@ public class Serum extends SkincareProduct {
 
     public void setActiveIngredient(String activeIngredient) {
         this.activeIngredient = activeIngredient;
+    }
+
+    public int getCopies() {
+        return copies;
+    }
+
+    public void setCopies(int copies) {
+        this.copies = copies;
     }
 
     @Override
@@ -37,6 +47,9 @@ public class Serum extends SkincareProduct {
 
     @Override
     public void sellItem() {
+        if (copies > 0) {
+            copies--;
+        }
         System.out.println("Selling Serum with ingredient: " + activeIngredient);
     }
 
@@ -44,6 +57,7 @@ public class Serum extends SkincareProduct {
     public String toString() {
         return "Serum{" +
                 "activeIngredient='" + activeIngredient + '\'' +
+                ", copies=" + copies +
                 "} " + super.toString();
     }
 
