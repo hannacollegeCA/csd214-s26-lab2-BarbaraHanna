@@ -1,5 +1,6 @@
 package bookstore.pojos;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Serum extends SkincareProduct {
@@ -44,5 +45,19 @@ public class Serum extends SkincareProduct {
         return "Serum{" +
                 "activeIngredient='" + activeIngredient + '\'' +
                 "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Serum serum = (Serum) o;
+        return Objects.equals(getActiveIngredient(), serum.getActiveIngredient());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getActiveIngredient());
     }
 }

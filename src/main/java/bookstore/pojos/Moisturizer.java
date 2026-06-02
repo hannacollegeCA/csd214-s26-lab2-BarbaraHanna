@@ -1,5 +1,6 @@
 package bookstore.pojos;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Moisturizer extends SkincareProduct {
@@ -44,5 +45,19 @@ public class Moisturizer extends SkincareProduct {
         return "Moisturizer{" +
                 "oilFree=" + oilFree +
                 "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Moisturizer that = (Moisturizer) o;
+        return isOilFree() == that.isOilFree();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isOilFree());
     }
 }

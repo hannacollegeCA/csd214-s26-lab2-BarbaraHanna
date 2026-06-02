@@ -1,5 +1,6 @@
 package bookstore.pojos;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public abstract class SkincareProduct extends Product {
@@ -51,5 +52,19 @@ public abstract class SkincareProduct extends Product {
                 "skinType='" + skinType + '\'' +
                 ", price=" + price +
                 "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SkincareProduct that = (SkincareProduct) o;
+        return Double.compare(getPrice(), that.getPrice()) == 0 &&
+                Objects.equals(getSkinType(), that.getSkinType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSkinType(), getPrice());
     }
 }
