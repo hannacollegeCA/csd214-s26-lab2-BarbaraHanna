@@ -72,6 +72,7 @@ public class App {
             System.out.println("5. Add Tire");
             System.out.println("6. Add Serum");
             System.out.println("7. Add Moisturizer");
+            System.out.println("8. Add Battery");
             System.out.println("99. Exit");
 
             try {
@@ -93,6 +94,7 @@ public class App {
                 case 5: item = new Tire(); break;
                 case 6: item = new Serum();  break;
                 case 7: item = new Moisturizer();  break;
+                case 8: item = new Battery(); break;
                 default: System.out.println("Invalid selection."); continue;
             }
 
@@ -123,6 +125,7 @@ public class App {
             System.out.println("6. Tire");
             System.out.println("7. Serum");
             System.out.println("8. Moisturizer");
+            System.out.println("9. Battery");
             System.out.println("99. Exit");
 
             try {
@@ -145,6 +148,7 @@ public class App {
                 case 6: filter = Tire.class; break;
                 case 7: filter = Serum.class; break;
                 case 8: filter = Moisturizer.class; break;
+                case 9: filter = Battery.class; break;
                 default: System.out.println("Invalid selection."); continue;
             }
 
@@ -304,7 +308,14 @@ public class App {
             moisturizer.setSkinType("Dry");
             moisturizer.setOilFree(true);
             moisturizer.setPrice(24.99);
-            addItem(m);
+            addItem(moisturizer);
+
+            //Battery
+            Battery battery = new Battery();
+            battery.setManufacturer("MotoMaster");
+            battery.setCopies(10);
+            battery.setPrice(200.0);
+            battery.setColdCrankingAmps(600);
         }
     }
 }

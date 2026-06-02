@@ -59,4 +59,39 @@ class AppTest {
         assertNotNull(result);
         assertEquals("Dune Messiah", ((Book)result).getTitle());
     }
+
+
+    //SERUM
+    @Test
+    void testAppFlow_AddCustomNiche() {
+        StringBuilder script = new StringBuilder();
+
+        script.append("1\n");
+        script.append("6\n");
+
+        script.append("Dry\n");
+        script.append("50\n");
+        script.append("Vitamin C\n");
+        script.append("99\n");
+
+        script.append("99\n");
+
+        System.setIn(new ByteArrayInputStream(script.toString().getBytes()));
+
+        App app = new App() {
+            @Override
+            public void populate() { }
+        };
+
+        app.run();
+
+        Serum expected = new Serum();
+        expected.setSkinType("Dry");
+        expected.setPrice(50);
+        expected.setActiveIngredient("Vitamin C");
+        SaleableItem result = app.findItem(expected);
+
+        assertNotNull(result);
+
+    }
 }
