@@ -70,3 +70,4 @@ public class Tire extends VehiclePart{
         System.out.println("Selling a Tire");
     }
 }
+
